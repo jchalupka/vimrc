@@ -16,17 +16,19 @@ I would, of course, recommend using the awesome version.
 ### Install for your own user only
 The awesome version includes a lot of great plugins, configurations and color schemes that make Vim a lot better. To install it simply do following from your terminal:
 
-	git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
-	sh ~/.vim_runtime/install_awesome_vimrc.sh
-	
+```bash
+git clone --depth=1 https://github.com/jchalupka/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+```
+
 ### Install for multiple users
 To install for multiple users, the repository needs to be cloned to a location accessible for all the intended users.
 
-	git clone --depth=1 https://github.com/amix/vimrc.git /opt/vim_runtime
+	git clone --depth=1 https://github.com/jchalupka/vimrc.git /opt/vim_runtime
 	sh ~/.vim_runtime/install_awesome_parameterized.sh /opt/vim_runtime user0 user1 user2
 	# to install for all users with home directories
 	sh ~/.vim_runtime/install_awesome_parameterized.sh /opt/vim_runtime --all
-	
+
 Naturally, `/opt/vim_runtime` can be any directory, as long as all the users specified have read access.
 
 ## Fonts
@@ -44,10 +46,10 @@ The basic version is just one file and no plugins. Just copy [basic.vim](https:/
 
 The basic version is useful to install on remote servers where you don't need many plugins, and you don't do many edits.
 
-	git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+	git clone --depth=1 https://github.com/jchalupka/vimrc.git ~/.vim_runtime
 	sh ~/.vim_runtime/install_basic_vimrc.sh
 
-
+## How to install on Windows?
 ## How to install on Windows?
 
 Use [gitforwindows](http://gitforwindows.org/) to checkout the repository and run the installation instructions above. No special instructions needed ;-)
@@ -65,7 +67,7 @@ Just do a git rebase!
     cd ~/.vim_runtime
     git pull --rebase
 
-
+## Some screenshots
 ## Some screenshots
 
 Colors when editing a Python file:
@@ -139,7 +141,7 @@ You can also install your plugins, for instance, via pathogen you can install [v
 	cd ~/.vim_runtime
 	git clone git://github.com/tpope/vim-rails.git my_plugins/vim-rails
 
-
+## Key Mappings
 ## Key Mappings
 
 The [leader](http://learnvimscriptthehardway.stevelosh.com/chapters/06.html#leader) is `,`, so whenever you see `<leader>` it means `,`.
@@ -169,13 +171,13 @@ Open [ctrlp.vim](https://github.com/kien/ctrlp.vim) plugin to quickly find a fil
 
     map <leader>z :Goyo<cr>
 
-
+### Normal mode mappings
 ### Normal mode mappings
 
 Fast saving of a buffer (`<leader>w`):
 
 	nmap <leader>w :w!<cr>
-	
+
 Map `<Space>` to `/` (search) and `<Ctrl>+<Space>` to `?` (backwards search):
 	
 	map <space> /
@@ -200,7 +202,7 @@ Closing of the current buffer(s) (`<leader>bd` and (`<leader>ba`)):
 	
 	" Close all buffers
 	map <leader>ba :1,1000 bd!<cr>
-	
+
 Useful mappings for managing tabs:
 	
 	map <leader>tn :tabnew<cr>
@@ -211,11 +213,11 @@ Useful mappings for managing tabs:
 	" Opens a new tab with the current buffer's path
 	" Super useful when editing files in the same directory
 	map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-	
+
 Switch [CWD](http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file) to the directory of the open buffer:
 	
 	map <leader>cd :cd %:p:h<cr>:pwd<cr>
-	
+
 Open `ack.vim` for fast search:
 	
 	map <leader>g :Ack 
@@ -228,7 +230,7 @@ Toggle paste mode on and off:
 	
 	map <leader>pp :setlocal paste!<cr>
 
-
+### Visual mode mappings
 ### Visual mode mappings
 
 Visual mode pressing `*` or `#` searches for the current selection:
@@ -253,7 +255,7 @@ Surround the visual selection in parenthesis/brackets/etc.:
     vnoremap $q <esc>`>a'<esc>`<i'<esc>
     vnoremap $e <esc>`>a"<esc>`<i"<esc>
 
-
+### Insert mode mappings
 ### Insert mode mappings
 
 Quickly insert parenthesis/brackets/etc.:
@@ -270,7 +272,7 @@ Insert the current date and time (useful for timestamps):
 
     iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
-
+### Command line mappings
 ### Command line mappings
 
 $q is super useful when browsing on the command line. It deletes everything until the last slash:
@@ -282,7 +284,7 @@ Bash like keys for the command line:
     cnoremap <C-A>		<Home>
     cnoremap <C-E>		<End>
     cnoremap <C-K>		<C-U>
-
+    
     cnoremap <C-P> <Up>
     cnoremap <C-N> <Down>
 
@@ -290,7 +292,7 @@ Write the file as sudo (works only on Unix). Super useful when you open a file a
 
     :W 
 
-
+### Spell checking
 ### Spell checking
 Pressing `<leader>ss` will toggle spell checking:
 
@@ -303,7 +305,7 @@ Shortcuts using `<leader>` instead of special characters:
     map <leader>sa zg
     map <leader>s? z=
 
-
+### Cope
 ### Cope
 Query `:help cope` if you are unsure what cope is. It's super useful!
 
@@ -323,7 +325,7 @@ Cope mappings:
     map <leader>n :cn<cr>
     map <leader>p :cp<cr>
 
-
+## How to uninstall
 ## How to uninstall
 Just do following:
 * Remove `~/.vim_runtime`
